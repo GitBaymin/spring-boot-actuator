@@ -1,0 +1,22 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: Spring Boot Admin Server
+    index: 1
+  jackson:
+    serialization:
+      indent_output: true
+  boot:
+    admin:
+      url: http://localhost:${server.port}
+
+management:
+  security:
+    enabled: false
+  context-path: /manage
+
+endpoints:
+  health:
+    sensitive: false

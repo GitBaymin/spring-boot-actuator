@@ -1,0 +1,40 @@
+info:
+  version: @project.version@
+server:
+  port: 9000
+spring:
+  application:
+    name: actuator
+    index: 1
+  boot:
+    admin:
+      url: http://localhost:8090
+  aop:
+    auto: true
+
+management:
+  port: 8081
+  address: 127.0.0.1
+  context-path: /details
+  security:
+    enabled: false
+endpoints:
+  health:
+    sensitive: true
+  actuator:
+    enabled: true
+  shutdown:
+    enabled: true
+#eureka:
+#  instance:
+#    instance-id: ${spring.application.name}:${spring.application.index:${random.value}}
+#    prefer-ip-address: true
+#    hostname: eureka-client-${spring.application.index}
+#    status-page-url-path: ${management.context-path}/info
+#    health-check-url-path: ${management.context-path}/health
+#    metadata-map:
+#      management:
+#        context-path: ${management.context-path}
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka/
